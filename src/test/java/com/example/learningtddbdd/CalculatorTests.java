@@ -21,13 +21,13 @@ public class CalculatorTests {
     private static Instant startedAt;
 
     @BeforeAll
-    public static void initStatingTime(){
+    static void initStatingTime(){
         System.out.println("avant tout les tests");
         startedAt = Instant.now();
     }
 
     @AfterAll
-    public static void showTestDuration(){
+    static void showTestDuration(){
         System.out.println("après tous les tests");
         Instant endAt = Instant.now();
         long duration = Duration.between(startedAt, endAt).toMillis();
@@ -35,13 +35,13 @@ public class CalculatorTests {
     }
 
     @BeforeEach
-    public void initCalculator(){
+    void initCalculator(){
         calculatorUnderTest = new Calculator();
         System.out.println("avant chaque test");
     }
 
     @AfterEach
-    public void undefCalculator(){
+    void undefCalculator(){
         System.out.println("après chaque test");
         calculatorUnderTest = null;
     }
@@ -55,7 +55,7 @@ public class CalculatorTests {
         int somme = calculatorUnderTest.add(a, b);
 
         // ASSERT
-        Assertions.assertThat(11).isEqualTo(somme);
+        Assertions.assertThat(somme).isEqualTo(11);
 
     }
 
@@ -81,7 +81,7 @@ public class CalculatorTests {
         int actualResult = calculatorUnderTest.multiply(arg, 0);
 
         // ASSERT
-        Assertions.assertThat(0).isEqualTo(actualResult);
+        Assertions.assertThat(actualResult).isEqualTo(0);
     }
 
     @ParameterizedTest(name = "{0} + {1} doit être égal à {2} ")
@@ -98,7 +98,7 @@ public class CalculatorTests {
 
     @Test
     @Timeout(3)
-    public void longCalcul_shouldComputerInLessThanSecond(){
+    void longCalcul_shouldComputerInLessThanSecond(){
         // ARRANGE
 
         //ACC
@@ -109,7 +109,7 @@ public class CalculatorTests {
     }
 
     @Test
-    public void listDigits_shouldReturnsTheListsOfDigits_ofPositiveInteger(){
+    void listDigits_shouldReturnsTheListsOfDigits_ofPositiveInteger(){
         // GIVEN
         int number = 95897;
 
@@ -124,7 +124,7 @@ public class CalculatorTests {
     }
 
     @Test
-    public void listDigits_shouldReturnsTheListsOfDigits_ofNegativeInteger(){
+    void listDigits_shouldReturnsTheListsOfDigits_ofNegativeInteger(){
         // GIVEN
         int number = -12343;
 
@@ -136,7 +136,7 @@ public class CalculatorTests {
 
     }
     @Test
-    public void listDigits_shouldReturnsTheListsOfDigits_ofZero(){
+    void listDigits_shouldReturnsTheListsOfDigits_ofZero(){
         // GIVEN
         int number = 0;
 
