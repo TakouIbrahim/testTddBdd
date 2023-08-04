@@ -1,2 +1,9 @@
-package acceptance;public class CustomerSteps {
+package acceptance;
+
+
+
+public class CustomerSteps {
+    public CustomerSteps() {
+
+    }
 }
